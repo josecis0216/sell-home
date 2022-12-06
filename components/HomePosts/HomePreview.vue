@@ -1,32 +1,19 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2>Current Inventory</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-lg-4 col-lg-3">
-        <nuxt-link :to="postLink">
-          <div class="card">
-            <article class="post-preview">
-              <div
-                class="post-thumbnail"
-                :style="{ backgroundImage: 'url(' + homeUrl + ')' }"
-              ></div>
-              <div class="post-content">
-                <h1>{{ address }}</h1>
-                <p>{{ description }}</p>
-              </div>
-            </article>
-          </div>
-        </nuxt-link>
-      </div>
+  <div class="col-sm-12 col-lg-4 col-lg-3">
+    <div class="card">
+      <img class="card-img-top" :src="homeUrl" alt="home image" />
+      <div class="card-body">        
+        <h2 class="card-title">{{ address }}</h2>
+        <h5 class="card-caption">{{ listPrice }}</h5>
+        <p class="card-text">{{ description }}</p>
+        <p class="card-text">{{ daysOnMarket }}</p>
+        <nuxt-link :to="postLink">See More</nuxt-link>
+      </div>      
     </div>
   </div>
 </template>
 
-<script>
+<script lang="js">
 export default {
   props: {
     id: {
@@ -58,11 +45,18 @@ export default {
       required: true,
     },
   },
-  methods: {
+  computed: {
     postLink() {
-        //  return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id;
-        return '/inventory/' + this.id;
-    }
-  }
+      //  return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id;
+      return '/inventory/' + this.id;
+    },
+  },
 }
 </script>
+
+<style scoped>
+img {
+  width: 100%;
+}
+</style>
+

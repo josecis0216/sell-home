@@ -9,7 +9,8 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <form>
+              <form v-on:submit.prevent="onSubmit()"
+                    method="POST">
                 <div class="form-group">
                   <label for="frmEmail">Email address</label>
                   <input
@@ -27,7 +28,7 @@
                     class="form-control"
                     id="frmFirstName"
                     placeholder="First Name"
-                    v-model="formData.firsName"
+                    v-model="formData.firstName"
                   />
                 </div>
                 <div class="form-group">
@@ -49,6 +50,7 @@
                     v-model="formData.message"
                   ></textarea>
                 </div>
+                <AppButton type="submit" >Submit</AppButton>
               </form>
             </div>
           </div>
@@ -63,11 +65,13 @@
 <script>
 import TopHeader from '@/components/nav/TopHeader.vue'
 import BottomFooter from '@/components/nav/BottomFooter.vue'
+import AppButton from '@/components/UI/AppButton.vue'
 
 export default {
   components: {
     TopHeader,
     BottomFooter,
+    AppButton,
   },
   data() {
     return {
@@ -79,5 +83,10 @@ export default {
       },
     }
   },
+  methods: {
+    onSubmit() {
+      console.log(this.formData);
+    }
+  }
 }
 </script>
