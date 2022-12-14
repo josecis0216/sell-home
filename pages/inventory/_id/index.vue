@@ -1,24 +1,29 @@
 <template>
   <section>
     <h2>id: {{ this.$route.params.id.toString() }}</h2>
+    <h3>{{ loadedPost.address }}</h3>
   </section>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  asyncData(context, callback) {
-    callback(null, {
-      loadedHomePost: {
-        id: '1',
-        address: '241 Buckingham Drive',
-        listPrice: '$425,000',
-        daysOnMarket: '12',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum eius iste reiciendis fugiat aut amet odio labore sed, exercitationem error accusamus tempora iure ad eaque minus est ut, illum saepe.',
-        homeUrl:
-          'https://media.istockphoto.com/photos/beautiful-residential-home-exterior-on-bright-sunny-day-with-green-picture-id1211174464?b=1&k=20&m=1211174464&s=612x612&w=0&h=rAGfSLUvnrvPauUveA-upyUtxffW7LvCKvhqYLF8eH8=',
-      },
+  asyncData(context,) {
+    return axios.get('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + context.params.id + '.json',  )
+    .then(res => {
+        return {
+            loadedPost: res.data
+        }
     })
+    .catch(e => context.error(e))
   },
+  methods: {
+    onSubmitted(editedPost) {
+        axios.put('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + this.$route.params.postId + '.json', editedPost)
+        .then(res => console.log(res))
+        .catch(e => console.log(e))
+    }
+  }
 }
 </script>
