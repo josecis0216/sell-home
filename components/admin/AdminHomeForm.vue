@@ -46,6 +46,7 @@ export default {
     },
   },
   data() {
+    console.log(this.home)
     return {
       editedHome: this.home
         ? { ...this.home }
@@ -66,7 +67,7 @@ export default {
     },
     onCancel() {
       // Navigate back
-      this.$router.push("/inventory");
+      this.$router.push("/admin");
     }
   }
 }

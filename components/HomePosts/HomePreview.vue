@@ -8,6 +8,7 @@
         <p class="card-text">{{ description }}</p>
         <p class="card-text">{{ daysOnMarket }}</p>
         <nuxt-link :to="postLink">See More</nuxt-link>
+        <nuxt-link :to="adminLink" :v-show="isAdmin">Edit Post</nuxt-link>
       </div>      
     </div>
   </div>
@@ -50,6 +51,9 @@ export default {
       //  return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id;
       return '/inventory/' + this.id;
     },
+    adminLink() {
+      return '/admin/' + this.id;
+    }
   },
 }
 </script>
