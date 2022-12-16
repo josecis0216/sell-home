@@ -2,23 +2,24 @@
   <div>
     <div class="admin-new-post-page">
       <section class="new-post-form">
-        <AdminPostForm @submit="onSubmitted" />
+        <AdminHomeForm @submit="onSubmitted" />
       </section>
     </div>
   </div>
 </template>
 
 <script>
-import AdminPostForm from '@/components/admin/AdminHomeForm'
+import AdminHomeForm from '@/components/admin/AdminHomeForm'
 
 export default {
   layout: 'admin',
   components: {
-    AdminPostForm,
+    AdminHomeForm,
   },
   methods: {
     onSubmitted(homeData) {
-      this.$store.dispatch('addPost', homeData).then(() => {
+      this.$store.dispatch('addHome', homeData)
+      .then(() => {
         this.$router.push('/admin')
       })
     },

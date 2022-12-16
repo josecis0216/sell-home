@@ -23,6 +23,7 @@
             ".json"
         )
         .then(res => {
+          console.log(res.data)
           return {
             loadedPost: { ...res.data, id: context.params.postId }
           };
@@ -31,7 +32,7 @@
     },
     methods: {
       onSubmitted(editedPost) {
-        this.$store.dispatch("editPost", editedPost).then(() => {
+        this.$store.dispatch("editHome", editedPost).then(() => {
           this.$router.push("/admin");
         });
       }

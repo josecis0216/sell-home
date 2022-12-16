@@ -14,6 +14,7 @@ const createStore = () => {
         state.loadedHomePosts.push(post)
       },
       editHome(state, editedPost) {
+        //console.log(editedPost + 'mutation')
         const postIndex = state.loadedHomePosts.findIndex(post => post.id === editedPost)
         state.loadedHomePosts[postIndex] = editedPost
       }
@@ -34,16 +35,21 @@ const createStore = () => {
       setHomes(vuexContext, homes) {
         vuexContext.commit('setHomes', homes)
       },
-      addPost(vuexContext, post) {
-        const createdPost = { ...homeData, updatedDate: new Date() }
+      addHome(vuexContext, post) {
+        const createdPost = { ...post, updatedDate: new Date() }
         return axios.post('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes.json', createdPost)
           .then(res => {
-            vuexContext.commit('addPost', { ...createdPost, id: res.data.name })
+            vuexContext.commit('addHome', { ...createdPost, id: res.data.name })
           })
           .catch(e => console.log(e))
       },
-      editPost(vuexContext, editedPost) {
-
+      editHome(vuexContext, editedPost) {
+        //console.log(editedPost + 'action')
+        return axios.put('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + editedPost.id + '.json', editedPost)
+        .then(res => {
+            vuexContext.commit('editHome', editedPost)
+        })
+        .catch(e => console.log(e))
       }
     },
     getters: {

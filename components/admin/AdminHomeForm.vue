@@ -46,7 +46,6 @@ export default {
     },
   },
   data() {
-    console.log(this.home)
     return {
       editedHome: this.home
         ? { ...this.home }
