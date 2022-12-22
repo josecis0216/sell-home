@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import AdminHomeForm from '@/components/admin/AdminHomeForm'
+import AdminHomeForm from '@/components/Admin/AdminHomeForm.vue'
 
 export default {
-  layout: 'admin',
   components: {
     AdminHomeForm,
   },
+  layout: 'admin',  
   methods: {
     onSubmitted(homeData) {
       this.$store.dispatch('addHome', homeData)

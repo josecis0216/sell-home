@@ -1,8 +1,8 @@
-import Vuex from 'vuex'
+import { Store } from 'vuex'
 import axios from 'axios'
 
 const createStore = () => {
-  return new Vuex.Store({
+  return new Store({
     state: {
       loadedHomePosts: [],
     },
@@ -14,8 +14,7 @@ const createStore = () => {
         state.loadedHomePosts.push(post)
       },
       editHome(state, editedPost) {
-        //console.log(editedPost + 'mutation')
-        const postIndex = state.loadedHomePosts.findIndex(post => post.id === editedPost)
+        const postIndex = state.loadedHomePosts.findIndex(post => post.id === editedPost.id)
         state.loadedHomePosts[postIndex] = editedPost
       }
     },
@@ -44,7 +43,7 @@ const createStore = () => {
           .catch(e => console.log(e))
       },
       editHome(vuexContext, editedPost) {
-        //console.log(editedPost + 'action')
+        //  console.log(editedPost + 'action')
         return axios.put('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + editedPost.id + '.json', editedPost)
         .then(res => {
             vuexContext.commit('editHome', editedPost)

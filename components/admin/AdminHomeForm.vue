@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import AppControlInput from '@/components/UI/AppControlInput.vue'
-import AppButton from '@/components/UI/AppButton.vue'
+import AppControlInput from '@/components/UI/AppControlInput'
+import AppButton from '@/components/UI/AppButton'
 
 export default {
   components: {
@@ -62,7 +62,7 @@ export default {
     onSave() {
       // Save the post
       this.$emit('submit', this.editedHome)
-      console.log('saved post!')
+      // console.log('saved post!')
     },
     onCancel() {
       // Navigate back

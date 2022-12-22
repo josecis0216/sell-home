@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import TopHeader from '@/components/nav/TopHeader.vue'
-import BottomFooter from '@/components/nav/BottomFooter.vue'
+import TopHeader from '@/components/Nav/TopHeader.vue'
+import BottomFooter from '@/components/Nav/BottomFooter.vue'
 import AppButton from '@/components/UI/AppButton.vue'
 
 export default {

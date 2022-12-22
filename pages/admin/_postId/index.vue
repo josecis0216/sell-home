@@ -1,7 +1,7 @@
 <template>
     <div class="admin-post-page">
       <section class="update-form">
-        <AdminHomeForm :post="loadedPost" @submit="onSubmitted" />
+        <AdminHomeForm :home="loadedPost" @submit="onSubmitted" />
       </section>
     </div>
   </template>
@@ -23,7 +23,6 @@
             ".json"
         )
         .then(res => {
-          console.log(res.data)
           return {
             loadedPost: { ...res.data, id: context.params.postId }
           };

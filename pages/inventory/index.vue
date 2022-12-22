@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import TopHeader from '@/components/nav/TopHeader.vue'
-import BottomFooter from '@/components/nav/BottomFooter.vue'
+import TopHeader from '@/components/Nav/TopHeader.vue'
+import BottomFooter from '@/components/Nav/BottomFooter.vue'
 import HomeList from '@/components/HomePosts/HomeList.vue'
 
 export default {
