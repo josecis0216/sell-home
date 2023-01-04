@@ -15,7 +15,7 @@
       AdminHomeForm
     },
     layout: "admin.vue",
-    middleware: 'auth',
+    middleware: ['check-auth', 'auth'],
     asyncData(context) {
       return axios
         .get(

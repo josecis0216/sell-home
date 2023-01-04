@@ -1,7 +1,7 @@
 <template>
     <section>
       <div>
-        <HomeList :homePosts="loadedHomePosts" />
+        <HomeList :home-posts="loadedHomePosts" />
       </div>
     </section>
   </template>
@@ -10,10 +10,10 @@
 import HomeList from '@/components/HomePosts/HomeList.vue'
 
 export default {
-    middleware: 'auth',
-    components: {
+  components: {
         HomeList
     },
+    middleware: ['check-auth', 'auth'],
     computed: {
         loadedHomePosts() {
             return this.$store.getters.loadedHomePosts

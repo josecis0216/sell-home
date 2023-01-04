@@ -12,11 +12,11 @@
 import AdminHomeForm from '@/components/Admin/AdminHomeForm.vue'
 
 export default {
-  middleware: 'auth',
   components: {
     AdminHomeForm,
   },
-  layout: 'admin',  
+  layout: 'admin',
+  middleware: ['check-auth', 'auth'],  
   methods: {
     onSubmitted(homeData) {
       this.$store.dispatch('addHome', homeData)
