@@ -42,4 +42,7 @@ export default {
   build: {
     standalone: true,
   },
+  env: {
+    fbAPIKey: 'AIzaSyCK85lAvSjJq9q3-yZ_E55Qnl9ey_x9GZA'
+  }
 }

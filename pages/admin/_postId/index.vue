@@ -11,10 +11,11 @@
   import AdminHomeForm from "@/components/Admin/AdminHomeForm";
   
   export default {
-    layout: "admin",
     components: {
       AdminHomeForm
     },
+    layout: "admin.vue",
+    middleware: 'auth',
     asyncData(context) {
       return axios
         .get(

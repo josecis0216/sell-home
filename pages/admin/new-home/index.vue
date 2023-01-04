@@ -12,6 +12,7 @@
 import AdminHomeForm from '@/components/Admin/AdminHomeForm.vue'
 
 export default {
+  middleware: 'auth',
   components: {
     AdminHomeForm,
   },

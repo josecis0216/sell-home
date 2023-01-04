@@ -10,6 +10,7 @@
 import HomeList from '@/components/HomePosts/HomeList.vue'
 
 export default {
+    middleware: 'auth',
     components: {
         HomeList
     },
