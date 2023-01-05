@@ -115,6 +115,7 @@ const createStore = () => {
           return;
         }
         vuexContext.dispatch('setLogoutTimer', +expirationDate - new Date().getTime())
+        console.log(token);
         vuexContext.commit('setToken', token);
       }
     },
@@ -123,6 +124,7 @@ const createStore = () => {
         return state.loadedHomePosts
       },
       isAuthenticated(state) {
+        console.log(state.token + 'is authenticated')
         return state.token != null
       }
     },

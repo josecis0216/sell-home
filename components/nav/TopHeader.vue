@@ -14,7 +14,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div id="navbarSupportedContent" class="collapse navbar-collapse" >
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <nuxt-link to="/about" class="nav-link">About</nuxt-link>
@@ -40,8 +40,8 @@
             Search
           </button>
         </form> -->
-        <button class="btn btn-outline-success my-2 my-sm-0">
-            <nuxt-link to="/admin/new-home" class="nav-link">New Home Post</nuxt-link>
+        <button v-show="showButton" class="btn btn-outline-success my-2 my-sm-0">
+            <nuxt-link to="/admin/new-home" class="nav-link" >New Home Post</nuxt-link>
           </button>
       </div>
     </nav>
@@ -54,7 +54,12 @@ export default {
         return {
             searchText: ''
         }
-    }, 
+    },
+    computed: {
+      showButton() {
+        return this.$store.getters.isAuthenticated;
+      }
+    },
     methods: {
         onSubmit() {
             // code to submit search here

@@ -1,8 +1,13 @@
 <template>
   <section>
     <TopHeader />
-    <div>
-      <HomeList :homePosts="loadedHomePosts" />
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Current Inventory</h2>
+        </div>
+      </div>
+      <HomeList :home-posts="loadedHomePosts" />
     </div>
     <BottomFooter />
   </section>

@@ -16,6 +16,9 @@
                         <li>
                             <nuxt-link to="/request" class="nav-link">Get a Quote</nuxt-link>
                         </li>
+                        <li>
+                            <nuxt-link to="/admin" class="nav-link">Admin</nuxt-link>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-12 col-lg-6">
