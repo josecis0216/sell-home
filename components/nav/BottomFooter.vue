@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-6">
-                    <ul>
+                    <ul class="nav-container">
                         <li>
                             <nuxt-link to="/" class="nav-link">Home</nuxt-link>
                         </li>
@@ -83,5 +83,8 @@ a {
 #social-icon-container {
     display: flex;
     justify-content: flex-end;
+}
+.nav-container, .nav-container li {
+    padding-left: 0px;
 }
 </style>
