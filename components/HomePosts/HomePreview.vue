@@ -8,7 +8,7 @@
         <p class="card-text">{{ description }}</p>
         <p class="card-text">{{ daysOnMarket }}</p>
         <nuxt-link :to="postLink">See More</nuxt-link>
-        <nuxt-link :to="adminLink" :v-show="isAdmin">Edit Post</nuxt-link>
+        <nuxt-link v-show="showEditLink" :to="adminLink" >Edit Post</nuxt-link>
       </div>      
     </div>
   </div>
@@ -53,6 +53,9 @@ export default {
     },
     adminLink() {
       return '/admin/' + this.id;
+    }, 
+    showEditLink() {
+      return this.$store.getters.isAuthenticated;
     }
   },
 }
