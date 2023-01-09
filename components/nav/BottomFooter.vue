@@ -84,7 +84,7 @@ a {
     display: flex;
     justify-content: flex-end;
 }
-.nav-container, .nav-container li {
+.nav-container, .nav-container li a {
     padding-left: 0px;
 }
 </style>

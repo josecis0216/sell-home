@@ -2,13 +2,18 @@
   <section>
     <h2>id: {{ this.$route.params.id.toString() }}</h2>
     <h3>{{ loadedPost.address }}</h3>
+    <HomeSeeMore />
   </section>
 </template>
 
 <script>
 import axios from 'axios'
+import HomeSeeMore from '@/components/HomePosts/HomeSeeMore.vue'
 
 export default {
+  components: {
+    HomeSeeMore
+  },
   asyncData(context,) {
     return axios.get('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + context.params.id + '.json',  )
     .then(res => {
