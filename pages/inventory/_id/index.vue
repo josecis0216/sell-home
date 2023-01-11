@@ -1,8 +1,8 @@
 <template>
   <section>
-    <h2>id: {{ this.$route.params.id.toString() }}</h2>
-    <h3>{{ loadedPost.address }}</h3>
-    <HomeSeeMore />
+    <!-- <h2>id: {{ this.$route.params.id.toString() }}</h2>
+    <h3>{{ loadedPost.address }}</h3> -->
+    <HomeSeeMore :home="loadedPost" />
   </section>
 </template>
 
@@ -12,23 +12,33 @@ import HomeSeeMore from '@/components/HomePosts/HomeSeeMore.vue'
 
 export default {
   components: {
-    HomeSeeMore
+    HomeSeeMore,
   },
-  asyncData(context,) {
-    return axios.get('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + context.params.id + '.json',  )
-    .then(res => {
+  mounted() {
+
+  },
+  asyncData(context) {
+    return axios
+      .get(
+        'https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' +
+          context.params.postId +
+          '.json'
+      )
+      .then((res) => {
         return {
-            loadedPost: res.data
+          loadedPost: { ...res.data, id: context.params.postId },
         }
-    })
-    .catch(e => context.error(e))
+      })
+      .catch((e) => context.error())
   },
-  methods: {
-    onSubmitted(editedPost) {
-        axios.put('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + this.$route.params.postId + '.json', editedPost)
-        .then(res => console.log(res))
-        .catch(e => console.log(e))
-    }
-  }
+  // data() {
+  //   return {
+  //     loadedPost: {}
+  //   }
+  // },
+  // async fetch() {
+  //   this.loadedPost = await fetch('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + this.$route.params.id.toString() + '.json')
+  //   .then(res => res.json())
+  // },
 }
 </script>
