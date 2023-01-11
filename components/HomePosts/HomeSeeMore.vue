@@ -1,22 +1,36 @@
 <template>
-  <div v-for="slide in slides" :key="slide.id">
+  <div>
     <div
-      id="carouselExampleControls"
+      id="carouselExampleIndicators"
       class="carousel slide"
       data-ride="carousel"
     >
+      <ol class="carousel-indicators">
+        <li
+          data-target="#carouselExampleIndicators"
+          data-slide-to="0"
+          class="active"
+        ></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            class="d-block w-100"
-            :src="slide.imgSource"
-            :alt="slide.title"
-          />
+        <div v-for="slide in slides" :key="slide.id" class="carousel-item">
+          <img class="d-blcok w-100" :src="slide.imgSource" :alt="slide.title" />
         </div>
+        <!-- <div class="carousel-item active">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=800" alt="First slide" />
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Second slide" />
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Third slide" />
+        </div> -->
       </div>
       <a
         class="carousel-control-prev"
-        href="#carouselExampleControls"
+        href="#carouselExampleIndicators"
         role="button"
         data-slide="prev"
       >
@@ -25,7 +39,7 @@
       </a>
       <a
         class="carousel-control-next"
-        href="#carouselExampleControls"
+        href="#carouselExampleIndicators"
         role="button"
         data-slide="next"
       >
@@ -34,11 +48,12 @@
       </a>
     </div>
   </div>
+  <!--<div v-for="slide in slides" :key="slide.id"></div>-->
 </template>
 
 <script>
 export default {
-  components: {},
+  // components: {},
   // props: {
   //   id: {
   //     type: String,
