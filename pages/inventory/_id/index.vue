@@ -14,15 +14,23 @@ export default {
   components: {
     HomeSeeMore,
   },
+  // asyncData(context) {
+  //   console.log("---------------" + context.app)
+  //   return context.app.$axios.$get('/posts/' + context.params.id + '.json')
+  //     .then(data => {
+  //       return {
+  //         loadedPost: data
+  //       }
+  //     })
+  //     .catch(e => context.error(e))
+  // },
   data() {
     return {
       loadedPost: {}
     }
   },
   created() {
-    console.log(this.$store.getters.loadedHomePosts.find(home => home.id === this.$route.params.id.toString()))
     this.loadedPost = this.$store.getters.loadedHomePosts.find(home => home.id === this.$route.params.id.toString())
-    console.log(this.loadedPost)
   }
   // async fetch() {
   //   this.loadedPost = await fetch('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + this.$route.params.id.toString() + '.json')
