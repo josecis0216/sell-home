@@ -1,3 +1,5 @@
+const bodyParser = require('body-parser');
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -44,5 +46,15 @@ export default {
   },
   env: {
     fbAPIKey: 'AIzaSyCK85lAvSjJq9q3-yZ_E55Qnl9ey_x9GZA'
-  }
+  },
+
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
+
+  serverMiddleware: [
+    bodyParser.json(),
+    '~/api'
+  ]
 }
