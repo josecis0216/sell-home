@@ -1,11 +1,16 @@
 <template>
   <section>
     <top-header />
-    <div>
-      <img class="card-img-top" :src="homePost.homeUrl" alt="home image" />
-      <h2 class="card-title">{{ homePost.address }}</h2>
-      <h5 class="card-caption">{{ homePost.listPrice }}</h5>
+    <div class="see-more-container">
+      <div class="img-container">
+        <img class="card-img-top" :src="homePost.homeUrl" alt="home image" />
+      </div>
+      <h2 style="text-align:center;">{{ homePost.address }}</h2>
+      <h5>List Price:</h5>
+      <p class="card-text">{{ homePost.listPrice }}</p>
+      <h5>Description:</h5>
       <p class="card-text">{{ homePost.description }}</p>
+      <h5>Days on Market:</h5>
       <p class="card-text">{{ homePost.daysOnMarket }}</p>
     </div>
     <bottom-footer />
@@ -42,3 +47,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.see-more-container{
+  max-width: 400px;
+  margin: auto;
+}
+</style>
