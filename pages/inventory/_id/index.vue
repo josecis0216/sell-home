@@ -26,12 +26,14 @@ export default {
   // },
   data() {
     return {
-      loadedPost: {}
+      loadedPost: {},
     }
   },
   created() {
-    this.loadedPost = this.$store.getters.loadedHomePosts.find(home => home.id === this.$route.params.id.toString())
-  }
+    this.loadedPost = this.$store.getters.loadedHomePosts.find(
+      (home) => home.id === this.$route.params.id.toString()
+    )
+  },
   // async fetch() {
   //   this.loadedPost = await fetch('https://nuxt-blog-fdc27-default-rtdb.firebaseio.com/homes/' + this.$route.params.id.toString() + '.json')
   //   .then(res => res.json())

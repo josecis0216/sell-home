@@ -37,14 +37,21 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt', 
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    baseURL: process.env.BASE_URL || 'https://nuxt-blog-fdc27-default-rtdb.firebaseio.com',
+    credentials: false
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     standalone: true,
   },
   env: {
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-fdc27-default-rtdb.firebaseio.com',
     fbAPIKey: 'AIzaSyCK85lAvSjJq9q3-yZ_E55Qnl9ey_x9GZA'
   },
 

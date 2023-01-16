@@ -1,6 +1,20 @@
 <template>
   <section>
     <top-header />
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><nuxt-link to="/inventory">Inventory</nuxt-link></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{ homePost.address }}
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
     <div class="see-more-container">
       <div class="img-container">
         <img class="card-img-top" :src="homePost.homeUrl" alt="home image" />

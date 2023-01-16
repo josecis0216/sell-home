@@ -4,6 +4,17 @@
     <div class="container">
       <div class="row">
         <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">
+                Inventory
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <h2>Current Inventory</h2>
         </div>
       </div>
