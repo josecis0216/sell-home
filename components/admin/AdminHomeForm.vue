@@ -9,6 +9,7 @@
         <AppControlInput v-model="editedHome.homeUrl"
           >Home Image Link</AppControlInput
         >
+        <AppControlInput v-model="moreHomeImages(homeUrl)">More Home Images</AppControlInput>
         <AppControlInput v-model="editedHome.daysOnMarket"
           >Days on market</AppControlInput
         >
@@ -45,6 +46,11 @@ export default {
       required: false,
     },
   },
+  computed: {
+    moreHomeImages(url) {
+      this.moreHomeImges.push(url)
+    }
+  },
   data() {
     return {
       editedHome: this.home
@@ -54,7 +60,8 @@ export default {
             listPrice: "",
             daysOnMarket: "",
             description: "",
-            homeUrl: ""
+            homeUrl: "", 
+            moreHomeImages: []
           }
     };
   },
