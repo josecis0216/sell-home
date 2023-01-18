@@ -10,7 +10,6 @@
       :days-on-market="home.daysOnMarket"
       :description="home.description"
       :home-url="home.homeUrl"
-      :more-home-images="home.moreHomeImages"
     />
   </div>
 </template>

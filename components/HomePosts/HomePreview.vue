@@ -45,10 +45,10 @@ export default {
       type: String,
       required: true,
     },
-    moreHomeImages: {
-      type: Array,
-      required: false,
-    }
+    // moreHomeImages: {
+    //   type: Array,
+    //   required: false,
+    // }
   },
   computed: {
     postLink() {
