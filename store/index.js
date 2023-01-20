@@ -100,6 +100,7 @@ const createStore = () => {
               new Date().getTime() +
                 Number.parseInt(result.data.expiresIn) * 1000
             );
+            this.$router.push('/admin');
             //  return this.$axios.$post('http://localhost:3000/api/track-data', {data: 'authenticated'})
           })
           .catch((e) => console.log(e))
@@ -125,6 +126,9 @@ const createStore = () => {
         } else if (process.client) {
           token = localStorage.getItem('token')
           expirationDate = localStorage.getItem('expirationDate')
+        } else {
+          token = null;
+          expirationDate = null;
         }
         if (new Date().getTime() > +expirationDate || !token) {
           console.log('no token found')

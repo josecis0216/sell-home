@@ -17,6 +17,14 @@ $ npm run start
 $ npm run generate
 ```
 
+# Sign Up
+- Sign up by clicking on the *Admin* link at the bottom of footer. 
+- Use email and create a password to sign up 
+- That will redirect you to admin page where you can click *New Home Post* button in navigation after signing up or logging in
+- Edit posts from the admin home page after being authenticated
+- Logout if you want, if not token will be removed after 1 hour and automatically log you out
+
+
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Special Directories
